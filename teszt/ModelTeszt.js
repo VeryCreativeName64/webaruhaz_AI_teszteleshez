@@ -36,8 +36,25 @@ function addKosarTeszt_AzAdottTermekMarSzerepelAKosarban(){
     modell.addKosar(termek)
     termek.mennyiseg=2;
     const kosarbanLevoTermek=modell.getKosarLista()[0]
+    console.assert(modell.getKosarLista().length==1,"a kosárba többször is bekerült");
     console.assert(JSON.stringify(termek)===JSON.stringify(kosarbanLevoTermek), termek,kosarbanLevoTermek, "hiba az addKosarTeszt_AzAdottTermekMarSzerepelAKosarban-ben")
     console.log("addKosarTeszt_AzAdottTermekMarSzerepelAKosarban lefutott")
 }
+
+function removeKosarItemTeszt(){
+    const modell=new Model();
+    const termek={
+     id: 1,
+     nev: "Termék 2",
+     ar: 1300,
+     kep: "./kepek/placeholder.jpg",
+     leiras: "Ez egy példa termék leírása.",
+    }
+    modell.addKosar(termek)
+    modell.removeKosarItem(1)   
+    console.assert(modell.getKosarLista().length===0, "hiba a removeKosarItemTeszt-ben")
+    console.log("removeKosarItemTeszt lefutott")
+}
 //addKosarTeszt_AzAdottTermekMegNemSzerepelAKosarban()
-addKosarTeszt_AzAdottTermekMarSzerepelAKosarban()
+//addKosarTeszt_AzAdottTermekMarSzerepelAKosarban()
+//removeKosarItemTeszt()
