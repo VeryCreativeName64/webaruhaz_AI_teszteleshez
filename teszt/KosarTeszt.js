@@ -53,18 +53,12 @@ function kosarMennyisegNovelTeszt(){
       kep: "./kepek/placeholder.jpg",
       mennyiseg: 1,
       leiras: "Ez egy példa termék leírása.",
-    },
-
-    {
-      id: 1,
-      nev: "Termék 2",
-      ar: 1300,
-      kep: "./kepek/placeholder.jpg",
-      mennyiseg: 1,
-      leiras: "Ez egy példa termék leírása.",
-    },
+    }
   ];
   const tesztKosar = new Kosar(lista, szElem);
   const sorLista = szElem.querySelectorAll("tr");
+
+  let vart = `" 2 "`
 }
 //kosarMegjelenitTeszt();
+kosarMennyisegNovelTeszt()
