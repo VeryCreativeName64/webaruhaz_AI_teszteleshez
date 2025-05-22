@@ -1,12 +1,7 @@
 import Model from "../PUBLIC/Model.js";
 
 function addKosarTeszt_AzAdottTermekMegNemSzerepelAKosarban(){
-    /*
-    kell egy termék
-    példányosítani kell a modelt
-    meg kell hívni a model metódusát
-    meg kell nézni, mi lett a kosár tartalma
-    */
+  
    const modell=new Model();
    const termek={
     id: 1,
@@ -55,6 +50,29 @@ function removeKosarItemTeszt(){
     console.assert(modell.getKosarLista().length===0, "hiba a removeKosarItemTeszt-ben")
     console.log("removeKosarItemTeszt lefutott")
 }
+
+function increaseQuantityTeszt(){
+    const modell = new Model();
+    const termek={
+     id: 1,
+     nev: "Termék 2",
+     ar: 1300,
+     kep: "./kepek/placeholder.jpg",
+     leiras: "Ez egy példa termék leírása.",
+    }
+
+    modell.addKosar(termek)
+    modell.increaseQuantity(termek.id)
+
+    const aktualis = modell.getKosarLista().find(t => t.id === termek.id);
+    console.log(aktualis)
+    const vartMennyiseg = 2;
+
+    console.assert(aktualis.mennyiseg === vartMennyiseg,`HIBA: A termék mennyisége nem ${vartMennyiseg}, hanem ${aktualis.mennyiseg}`)
+    console.log("increaseQuantityTeszt lefutott")
+
+}
 //addKosarTeszt_AzAdottTermekMegNemSzerepelAKosarban()
 //addKosarTeszt_AzAdottTermekMarSzerepelAKosarban()
 //removeKosarItemTeszt()
+increaseQuantityTeszt()

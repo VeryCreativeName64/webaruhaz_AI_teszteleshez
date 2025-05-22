@@ -43,4 +43,28 @@ function kosarMegjelenitTeszt() {
   );
 }
 
-kosarMegjelenitTeszt();
+function kosarMennyisegNovelTeszt(){
+  const szElem = document.createElement("div");
+  const lista = [
+    {
+      id: 0,
+      nev: "Termék 1",
+      ar: 1000,
+      kep: "./kepek/placeholder.jpg",
+      mennyiseg: 1,
+      leiras: "Ez egy példa termék leírása.",
+    },
+
+    {
+      id: 1,
+      nev: "Termék 2",
+      ar: 1300,
+      kep: "./kepek/placeholder.jpg",
+      mennyiseg: 1,
+      leiras: "Ez egy példa termék leírása.",
+    },
+  ];
+  const tesztKosar = new Kosar(lista, szElem);
+  const sorLista = szElem.querySelectorAll("tr");
+}
+//kosarMegjelenitTeszt();
